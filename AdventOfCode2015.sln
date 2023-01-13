@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01", "Day01\Day01.csproj", "{89713759-EB6C-4EBF-B79B-58CA30EDDA9C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "README.md-Updater", "README.md-Updater\README.md-Updater.csproj", "{ABA7878E-1D21-4855-BFC1-B16A274257FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{89713759-EB6C-4EBF-B79B-58CA30EDDA9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89713759-EB6C-4EBF-B79B-58CA30EDDA9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89713759-EB6C-4EBF-B79B-58CA30EDDA9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA7878E-1D21-4855-BFC1-B16A274257FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA7878E-1D21-4855-BFC1-B16A274257FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA7878E-1D21-4855-BFC1-B16A274257FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA7878E-1D21-4855-BFC1-B16A274257FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
