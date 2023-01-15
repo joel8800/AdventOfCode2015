@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01", "Day01\Day01.csproj", "{89713759-EB6C-4EBF-B79B-58CA30EDDA9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day01", "Day01\Day01.csproj", "{89713759-EB6C-4EBF-B79B-58CA30EDDA9C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "README.md-Updater", "README.md-Updater\README.md-Updater.csproj", "{ABA7878E-1D21-4855-BFC1-B16A274257FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day02", "Day02\Day02.csproj", "{956FA7C3-40B3-4989-AD1E-84D1EA378BC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{ABA7878E-1D21-4855-BFC1-B16A274257FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABA7878E-1D21-4855-BFC1-B16A274257FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA7878E-1D21-4855-BFC1-B16A274257FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{956FA7C3-40B3-4989-AD1E-84D1EA378BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956FA7C3-40B3-4989-AD1E-84D1EA378BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956FA7C3-40B3-4989-AD1E-84D1EA378BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956FA7C3-40B3-4989-AD1E-84D1EA378BC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

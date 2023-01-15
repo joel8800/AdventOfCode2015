@@ -1,6 +1,4 @@
-﻿
-
-Console.WriteLine("Day01: Not Quite Lisp");
+﻿Console.WriteLine("Day01: Not Quite Lisp");
 
 string input = File.ReadAllText("input.txt");
 
