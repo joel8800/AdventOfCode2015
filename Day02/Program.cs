@@ -2,22 +2,32 @@
 
 string[] input = File.ReadAllLines("input.txt");
 
-int total = 0;
+int wrapPaper = 0;
+int ribbon = 0;
 
 foreach (string line in input)
 {
     string[] dims = line.Split('x',StringSplitOptions.TrimEntries);
-    int l = Convert.ToInt32(dims[0]);
-    int w = Convert.ToInt32(dims[1]);
-    int h = Convert.ToInt32(dims[2]);
+    List<int> xyz = new();
 
-    int area1 = l * w;
-    int area2 = w * h;
-    int area3 = h * l;
+    int l = Convert.ToInt32(dims[0]);    // length
+    int w = Convert.ToInt32(dims[1]);    // width
+    int h = Convert.ToInt32(dims[2]);    // height
 
-    int area = (area1 * 2) + (area2 * 2) + (area3 * 2) + (Math.Min(area1, Math.Min(area2, area3)));
+    xyz.Add(l);
+    xyz.Add(w);
+    xyz.Add(h);
 
-    total += area;
+    int min1 = xyz.Min();
+    xyz.Remove(min1);
+    int min2 = xyz.Min();
+
+    int paperNeeded = (l * w * 2) + (w * h * 2) + (h * l * 2) + (min1 * min2);
+    int ribbonNeeded = (min1 * 2 + min2 * 2) + (l * w * h);
+
+    wrapPaper += paperNeeded;
+    ribbon += ribbonNeeded;
 }
 
-Console.WriteLine($"Part1: {total}");
+Console.WriteLine($"Part1: {wrapPaper}");
+Console.WriteLine($"Part2: {ribbon}");
