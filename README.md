@@ -8,4 +8,4 @@
 | Day                                                          | C#                            | Stars |  Solution Description |
 | ------------------------------------------------------------ | ----------------------------- | ----- | -------------------- |
 | [Day 01:  Not Quite Lisp](https://adventofcode.com/2015/day/1) | [Solution](./Day01/Program.c) | :star::star: |
-| [Day 02:  I Was Told There Would Be No Math](https://adventofcode.com/2015/day/2) | [Solution](./Day02/Program.c) | :star:  |
+| [Day 02:  I Was Told There Would Be No Math](https://adventofcode.com/2015/day/2) | [Solution](./Day02/Program.c) | :star::star: |
