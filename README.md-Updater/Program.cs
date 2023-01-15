@@ -1,4 +1,4 @@
-﻿using README.md_Updater;
+﻿using ReadMeUpdater;
 using System.Text;
 using System.Text.RegularExpressions;
 
