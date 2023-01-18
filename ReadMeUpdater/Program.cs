@@ -66,7 +66,7 @@ foreach (string line in solution)
                 string responseBody = await client.GetStringAsync(url);
 
                 // be a good net citizen and dont DDOS the site
-                Thread.Sleep(5000);
+                Thread.Sleep(3000);
 
                 // find the title
                 Match m = Regex.Match(responseBody, @"--- Day (.*) ---");
