@@ -4,14 +4,17 @@ using System.Text.RegularExpressions;
 
 const int year = 2015;
 const string progressFile = "progress.txt";
-
-// read last saved status
-string[] progressEntries = File.ReadAllLines(progressFile);
 List<PuzzleInfo> puzzles = new();
-foreach (string entry in progressEntries)
+
+if (File.Exists(progressFile))
 {
-    PuzzleInfo pi = new(entry);
-    puzzles.Add(pi);
+    // read last saved status
+    string[] progressEntries = File.ReadAllLines(progressFile);
+    foreach (string entry in progressEntries)
+    {
+        PuzzleInfo pi = new(entry);
+        puzzles.Add(pi);
+    }
 }
 
 
