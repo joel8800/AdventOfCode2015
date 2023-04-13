@@ -4,7 +4,7 @@ $cookieFile = '.\aocCookie'
 
 # Put this at the top of the README.md
 $header = @"
-# Advent of Code 2015
+# Advent of Code $year
 - My attempt to catch up on all the Advents of Code.
 - Starting this project in winter 2023.
 
@@ -29,13 +29,13 @@ function Get-DayTitle {
 # Generate README.md
 function Write-ReadMeFile {
     $stars = Get-StarCount
-    $progress = "## Progress: ![Progress](https://progress-bar.dev/$stars/?scale=50&title=StarsCollected&width=400&suffix=/50)`r`n"
+    $progressBar = "### Progress:  ![Progress](https://progress-bar.dev/$stars/?scale=50&title=StarsCollected&width=480&suffix=/50)`r`n"
 
-    $readme = $header + $progress + ($sortedDays | ConvertTo-MarkDownTable) 
+    $readme = $header + $progressBar + ($sortedDays | ConvertTo-MarkDownTable) 
     Set-Content -Path '.\README.md' -Value $readme
 }
 
-# count the stars completed, one for each part of each day
+# Count the stars completed, one for each part of each day
 function Get-StarCount {
     $stars = 0
     $sortedDays | ForEach-Object {
@@ -45,7 +45,7 @@ function Get-StarCount {
     return $stars
 }
 
-# create markdown table
+# Create markdown table of daily progress
 function ConvertTo-MarkDownTable {
     [CmdletBinding()] param(
         [Parameter(Position = 0, ValueFromPipeLine = $True)] $InputObject
@@ -111,13 +111,13 @@ $status | ForEach-Object {
         $part1 = $_.$aLabel -match '(one)'
     }
     
-    # If any stars on this day, build day object
+    # If any stars on this day, build a day object and add to list
     if (($part1 -or $part2) -eq $true) {
 
         # Get day info from local file and use its title
         if (Test-Path variable:localStatus) {
             $localDay = $localStatus | Where-Object -Property Day -eq $day
-            if ([string]::IsNullOrEmpty($localDay.Title)) {
+            if ([string]::IsNullOrEmpty($localDay.Title) -eq $false) {
                 $title = $localDay.Title
             }
             else {
@@ -146,3 +146,5 @@ $sortedDays = $dayList | Sort-Object -Property Day
 Write-ReadMeFile
 $json = ConvertTo-Json -InputObject $sortedDays
 $json | Out-File DayStatus.json
+
+# script end
