@@ -1,5 +1,6 @@
 # Advent of Code 2015
-- My attempt to catch up on all the Advents of Code. I'm starting this in 2023
+- My attempt to catch up on all the Advents of Code.
+- Starting this project in winter 2023.
 ## Progress: ![Progress](https://progress-bar.dev/21/?scale=50&title=StarsCollected&width=400&suffix=/50)
 | Day | Status | Source | Solution Description |
  | - | - | - | - |

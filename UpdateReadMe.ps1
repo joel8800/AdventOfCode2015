@@ -5,7 +5,8 @@ $cookieFile = '.\aocCookie'
 # Put this at the top of the README.md
 $header = @"
 # Advent of Code 2015
-- My attempt to catch up on all the Advents of Code. I'm starting this in 2023
+- My attempt to catch up on all the Advents of Code.
+- Starting this project in winter 2023.
 
 "@
 
