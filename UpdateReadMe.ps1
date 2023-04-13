@@ -117,7 +117,7 @@ $status | ForEach-Object {
         # Get day info from local file and use its title
         if (Test-Path variable:localStatus) {
             $localDay = $localStatus | Where-Object -Property Day -eq $day
-            if ($localDay.Title -ne "") {
+            if ([string]::IsNullOrEmpty($localDay.Title)) {
                 $title = $localDay.Title
             }
             else {
@@ -126,7 +126,6 @@ $status | ForEach-Object {
         }
         else {
             $title = Get-DayTitle -Day $day
-            #$title = ""
         }
 
         # create object for the day and add to list
