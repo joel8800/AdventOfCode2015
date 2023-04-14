@@ -2,7 +2,11 @@ $year = 2015
 $url = "https://adventofcode.com/$year"
 $cookieFile = '.\aocCookie'
 
-# Put this at the top of the README.md
+# Note:
+# Solution Description is 'Add descriptive text here' by default
+# Edit the .json file to change it. It should persist once set.
+
+# This gets put at the top of the README.md
 $header = @"
 # Advent of Code $year
 - My attempt to catch up on all the Advents of Code.
@@ -29,7 +33,7 @@ function Get-DayTitle {
 # Generate README.md
 function Write-ReadMeFile {
     $stars = Get-StarCount
-    $progressBar = "### Progress:  ![Progress](https://progress-bar.dev/$stars/?scale=50&title=StarsCollected&width=480&suffix=/50)`r`n"
+    $progressBar = "Progress:  ![Progress](https://progress-bar.dev/$stars/?scale=50&title=StarsCollected&width=480&suffix=/50)`r`n"
 
     $readme = $header + $progressBar + ($sortedDays | ConvertTo-MarkDownTable) 
     Set-Content -Path '.\README.md' -Value $readme
@@ -51,7 +55,7 @@ function ConvertTo-MarkDownTable {
         [Parameter(Position = 0, ValueFromPipeLine = $True)] $InputObject
     )
     Begin {
-        "| Day | Status | Source | Solution Description |`r`n"
+        "| Day | Status | Source | Solution Notes |`r`n"
         "| - | - | - | - |`r`n"
     }
     Process {
@@ -59,7 +63,7 @@ function ConvertTo-MarkDownTable {
         $solLink = '[Solution](./Day' + ([string]$_.Day).PadLeft(2, '0') + '/Program.cs)'
         if ($_.Part1) { $pt1 = ':star:' } else { $pt1 = '' }
         if ($_.Part2) { $pt2 = ':star:' } else { $pt2 = '' }
-        "| $dayLink | $pt1$pt2 | $solLink | Add descriptive text here |`r`n"
+        "| $dayLink | $pt1$pt2 | $solLink | " + $_.DescText + " |`r`n"
     }
     End {}
 }
@@ -123,18 +127,21 @@ $status | ForEach-Object {
             else {
                 $title = Get-DayTitle -Day $day
             }
+            $descTxt = $localDay.DescText
         }
         else {
             $title = Get-DayTitle -Day $day
+            $descTxt = 'Add descriptive text here'
         }
 
         # create object for the day and add to list
         $tmp = [PSCustomObject]@{
-            Day   = $day
-            Part1 = $part1
-            Part2 = $part2
-            Title = $title
-            Link  = '.\Day' + ([string]$day).PadLeft(2, '0') + '\Program.cs'
+            Day      = $day
+            Part1    = $part1
+            Part2    = $part2
+            Title    = $title
+            Link     = '.\Day' + ([string]$day).PadLeft(2, '0') + '\Program.cs'
+            DescText = $descTxt
         }
         $dayList.Add($tmp) | Out-Null
     }
