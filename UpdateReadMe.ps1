@@ -14,6 +14,12 @@ $header = @"
 
 "@
 
+$progressBar = @"
+#### Progress:
+![Progress](https://progress-bar.dev/$stars/?scale=50&title=StarsCollected&width=700&suffix=/50)
+
+"@
+
 # =====================================================================================================================
 # Functions 
 # =====================================================================================================================
@@ -33,8 +39,6 @@ function Get-DayTitle {
 # Generate README.md
 function Write-ReadMeFile {
     $stars = Get-StarCount
-    $progressBar = "#### Progress:  ![Progress](https://progress-bar.dev/$stars/?scale=50&title=StarsCollected&width=480&suffix=/50)`r`n"
-
     $readme = $header + $progressBar + ($sortedDays | ConvertTo-MarkDownTable) 
     Set-Content -Path '.\README.md' -Value $readme
 }
