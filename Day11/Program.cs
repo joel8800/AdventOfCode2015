@@ -5,20 +5,16 @@ Console.WriteLine("Day11: Corporate Policy");
 string input = File.ReadAllText("input.txt");
 
 string nextPassword = input;
-do
-{
+do {
     nextPassword = Increment(nextPassword);
-    
 } while (!ValidPassword(nextPassword));
 
 string answerPt1 = nextPassword;
 Console.WriteLine($"Part1: {answerPt1}");
 // ----------------------------------------------------------------------------
 
-do
-{
+do {
     nextPassword = Increment(nextPassword);
-    //Console.WriteLine(nextPassword);
 } while (!ValidPassword(nextPassword));
 
 string answerPt2 = nextPassword;
