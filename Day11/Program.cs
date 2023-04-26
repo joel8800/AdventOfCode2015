@@ -18,7 +18,7 @@ Console.WriteLine($"Part1: {answerPt1}");
 do
 {
     nextPassword = Increment(nextPassword);
-
+    //Console.WriteLine(nextPassword);
 } while (!ValidPassword(nextPassword));
 
 string answerPt2 = nextPassword;
