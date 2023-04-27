@@ -1,3 +1,27 @@
+# =====================================================================================================================
+#
+# PowerShell script to update README.md to display a table of puzzles and stars collected
+# on AdventOfCode challenges
+#
+# This script uses the users session cookie to get the users main page.
+# - It gets the number of stars for each day
+# - For each day with stars, it will go to that days puzzle to retrieve the title
+# - A progress bar is generated using the number of stars out of 50
+# - A table that displays the puzzles solved and number stars for each day
+# - JSON file with the current status is saved to not have to retrieve the same information daily
+# 
+# The user needs to get their unique session cookie from their browser and save it to the
+# cookie file ($cookieFile).  It should be one line in the form "session=ba32a3...."
+# 
+# Set the $year variable to the current year.
+#
+# Change the $header here string to include any additional text to the section above the progress
+# bar and table.
+#
+# The Solution Notes column is a place holder. The user should edit the DescText fields in the daily
+# status JSON file.
+# =====================================================================================================================
+
 $year = 2015
 $url = "https://adventofcode.com/$year"
 $cookieFile = '.\aocCookie'
