@@ -1,7 +1,12 @@
 # Advent of Code 2015
 - My attempt to catch up on all the Advents of Code.
 - Starting this project in winter 2023.
-#### Progress:  ![Progress](https://progress-bar.dev/23/?scale=50&title=StarsCollected&width=480&suffix=/50)
+
+#### Progress:
+<img style="display: block; margin-left: auto; margin-right: auto; width: 80%;"
+	src="https://progress-bar.dev/23/?scale=50&title=StarsCollected&width=700&suffix=/50"
+	alt="Progress Bar">
+</img>
 | Day | Status | Source | Solution Notes |
  | - | - | - | - |
  | [Day 01:  Not Quite Lisp](https://adventofcode.com/2015/day/1) | :star::star: | [Solution](./Day01/Program.cs) | Count parentheses |

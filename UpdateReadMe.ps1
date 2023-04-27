@@ -12,6 +12,16 @@ $header = @"
 - My attempt to catch up on all the Advents of Code.
 - Starting this project in winter 2023.
 
+#### Progress:
+<img style="display: block; margin-left: auto; margin-right: auto; width: 80%;"
+
+"@
+
+$pbFooter = @"
+
+`talt=`"Progress Bar`">
+</img>
+
 "@
 
 # =====================================================================================================================
@@ -33,9 +43,8 @@ function Get-DayTitle {
 # Generate README.md
 function Write-ReadMeFile {
     $stars = Get-StarCount
-    $progressBar = "#### Progress:  ![Progress](https://progress-bar.dev/$stars/?scale=50&title=StarsCollected&width=480&suffix=/50)`r`n"
-
-    $readme = $header + $progressBar + ($sortedDays | ConvertTo-MarkDownTable) 
+    $progressBar = "`tsrc=`"https://progress-bar.dev/$stars/?scale=50&title=StarsCollected&width=700&suffix=/50`""
+    $readme = $header + $progressBar + $pbFooter + ($sortedDays | ConvertTo-MarkDownTable) 
     Set-Content -Path '.\README.md' -Value $readme
 }
 
@@ -81,7 +90,6 @@ $cookie = Get-Content -Path $cookieFile -TotalCount 1
 $parts = $cookie -Split '='
 
 # Make a session cookie object
-#$sessCookie = New-Object System.Net.Cookie
 $sessCookie = [System.Net.Cookie]::new()
 $sessCookie.Name = $parts[0]
 $sessCookie.Value = $parts[1]
