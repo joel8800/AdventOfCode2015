@@ -13,7 +13,7 @@ $header = @"
 - Starting this project in winter 2023.
 
 #### Progress:
-<img style="display: block; margin-left: auto; margin-right: auto; width: 80%;"
+<img style="display: block; margin-left: auto; margin-right: auto; width: 100%;"
 
 "@
 

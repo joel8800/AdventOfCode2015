@@ -3,7 +3,7 @@
 - Starting this project in winter 2023.
 
 #### Progress:
-<img style="display: block; margin-left: auto; margin-right: auto; width: 80%;"
+<img style="display: block; margin-left: auto; margin-right: auto; width: 100%;"
 	src="https://progress-bar.dev/23/?scale=50&title=StarsCollected&width=700&suffix=/50"
 	alt="Progress Bar">
 </img>
