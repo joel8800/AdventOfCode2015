@@ -5,6 +5,7 @@ Console.WriteLine("Aunt Sue");
 
 string[] input = FileUtil.ReadFileByLine("input.txt");
 
+// output of MFCSAM
 Dictionary<string, int> mfcsam = new()
 {
     { "children",    3 },
@@ -19,6 +20,7 @@ Dictionary<string, int> mfcsam = new()
     { "perfumes",    1 },
 };
 
+// create lists of aunts for pt1 and pt2
 List<AuntSue> auntsPt1 = new();
 List<AuntSue> auntsPt2 = new();
 foreach (string line in input)
@@ -36,7 +38,7 @@ foreach (string line in input)
 }
 
 foreach (var kvp in mfcsam)
-    EliminateAunts(auntsPt1, false, kvp.Value, kvp.Key);
+    EliminateAunts(auntsPt1, kvp.Key, kvp.Value, false);
 
 int answerPt1 = 0;
 if (auntsPt1.Count == 1)
@@ -47,7 +49,7 @@ Console.WriteLine($"Part1: {answerPt1}");
 // ----------------------------------------------------------------------------
 
 foreach (var kvp in mfcsam)
-    EliminateAunts(auntsPt2, true, kvp.Value, kvp.Key);
+    EliminateAunts(auntsPt2, kvp.Key, kvp.Value, true);
 
 int answerPt2 = 0;
 if (auntsPt2.Count == 1)
@@ -57,7 +59,7 @@ Console.WriteLine($"Part2: {answerPt2}");
 
 // ============================================================================
 
-void EliminateAunts(List<AuntSue> aunts, bool isPart2, int count, string item)
+void EliminateAunts(List<AuntSue> aunts, string item, int count, bool isPart2)
 {
     List<int> idToRemove = new();
     string op = "";
