@@ -1,91 +1,88 @@
 ﻿using AoCUtils;
 using Day13;
-using System.Diagnostics;
 
 Console.WriteLine("Knights of tbe Dinner Table");
 
 string[] input = FileUtil.ReadFileByLine("input.txt");
 
-List<Diner> persons = new();
-//foreach (string line in input)
-//{
-//    string[] parts = line.Split(' ', StringSplitOptions.TrimEntries);
-    
-//    if (persons.Find(p => p.Name == parts[0]) == null)
-//    {
-//        Person tmp = new();
-//        tmp.Name = parts[0];
-//        persons.Add(tmp);
-//    }
+Dictionary<string, int> names = new();      // maps node name to index
 
-//    Person p = persons.Find(p => p.Name == parts[0]);
-//    int i = parts[2] == "gain" ? 1 : -1;
-//    p.Neighbors.Add(parts[10], Convert.ToInt32(parts[3]) * i);
-//}
-
-
-
-List<Diner> table = new();
-Dictionary<string, int> n = new();      // map node name to index
-
+List<Person> table = new();
 foreach (string line in input)
 {
-
     string[] inputs = line.Replace(".", "").Split(' ');
 
-    string name0 = inputs[0];
-    string name1 = inputs[10];
+    string thisName = inputs[0];
+    string otherName = inputs[10];
 
     // add nodes, translate names to indexes
-    if (n.ContainsKey(name0) == false)
+    if (names.ContainsKey(thisName) == false)
     {
-        n[name0] = n.Count;
-        table.Add(new Diner(name0, n[name0]));
+        names[thisName] = names.Count;
+        table.Add(new Person(thisName, names[thisName]));
     }
-    if (n.ContainsKey(name1) == false)
+    if (names.ContainsKey(otherName) == false)
     {
-        n[name1] = n.Count;
-        table.Add(new Diner(name1, n[name1]));
+        names[otherName] = names.Count;
+        table.Add(new Person(otherName, names[otherName]));
     }
 
     // add edge to next person
     int i = inputs[2] == "gain" ? 1 : -1;
     int effectOnHappiness = Convert.ToInt32(inputs[3]) * i;
-    table[n[name0]].AddNeighbor(n[name1], effectOnHappiness);
+    table[names[thisName]].AddNeighbor(names[otherName], effectOnHappiness);
 }
 
-List<List<int>> permutations = new();
-List<int> dinerIndexes = new();
-dinerIndexes.AddRange(Enumerable.Range(0, table.Count));
+// get all possible permutations
+List<int> indexes = new();
+indexes.AddRange(Enumerable.Range(0, table.Count));
 
-Stopwatch sw1 = Stopwatch.StartNew();
-GetPermutations(dinerIndexes, 0, dinerIndexes.Count - 1);
-Console.WriteLine($"time1:[{sw1.Elapsed}] resCount = {permutations.Count}");
+List<List<int>> permutations = new();
+GetPermutations(permutations, indexes, 0, indexes.Count - 1);
 
 // calculate happiness of each permutation of seatings
 List<int> happiness = new();
 foreach (List<int> permutation in permutations)
-{
-    happiness.Add(GetHappiness(permutation));
-}
+    happiness.Add(GetHappiness(table, permutation));
 
-// get the happiness of the happiest seating
-int answerPt1 = happiness.Max();
-Console.WriteLine($"Part1: {answerPt1}");
+Console.WriteLine($"Part1: {happiness.Max()}");
+
+// ----------------------------------------------------------------------------
+
+// add me to the table with no effect on happiness
+int tableCount = table.Count;
+
+Person me = new("Me", table.Count);
+for (int i = 0; i < tableCount; i++)
+    me.AddNeighbor(i, 0);
+
+table.ForEach(p => p.Neighbors[tableCount] = 0);
+table.Add(me);
+
+// get all possible permutations
+indexes = new();
+indexes.AddRange(Enumerable.Range(0, table.Count));
+
+permutations = new();
+GetPermutations(permutations, indexes, 0, indexes.Count - 1);
+
+// calculate happiness of each permutation of seatings
+happiness = new();
+foreach (List<int> permutation in permutations)
+    happiness.Add(GetHappiness(table, permutation));
+
+Console.WriteLine($"Part2: {happiness.Max()}");
 
 
-//=============================================================================
+// ============================================================================
 
 // get a list of all permutations of a given number of ints in a list
 // the total count of them should be the factorial of the number of ints
-void GetPermutations(List<int> elements, int recurseDepth, int maxDepth)
+void GetPermutations(List<List<int>> permutations, List<int> elements, int recurseDepth, int maxDepth)
 {
     if (recurseDepth == maxDepth)
     {
-        List<int> newElements = new();
-        foreach (int element in elements)
-            newElements.Add(element);
-        permutations.Add(newElements);
+        permutations.Add(elements.ToList());
         return;
     }
 
@@ -93,7 +90,7 @@ void GetPermutations(List<int> elements, int recurseDepth, int maxDepth)
     {
         (elements[recurseDepth], elements[i]) = (elements[i], elements[recurseDepth]);
 
-        GetPermutations(elements, recurseDepth + 1, maxDepth);
+        GetPermutations(permutations, elements, recurseDepth + 1, maxDepth);
 
         // backtrack swap since we're working on the list in-place
         (elements[recurseDepth], elements[i]) = (elements[i], elements[recurseDepth]);
@@ -101,24 +98,20 @@ void GetPermutations(List<int> elements, int recurseDepth, int maxDepth)
 }
 
 // get the total happiness of the table for this seating arrangement
-int GetHappiness(List<int> diners)
+int GetHappiness(List<Person> table, List<int> list)
 {
     int happiness = 0;
-    int maxIdx = diners.Count - 1;
 
-    foreach (int i in diners)
-        Console.Write($"{i} ");
-    Console.Write(": ");
-
-    for (int i = 0; i < maxIdx; i++)
+    // add happiness of curr to next and next to current
+    for (int i = 0; i < list.Count - 1; i++)
     {
-        happiness += table[diners[i]].Neighbors[diners[i + 1]] + table[diners[i + 1]].Neighbors[diners[i]];
-        Console.Write($"{happiness} ");
-    }
-    
-    // take care of the wraparound from end of list to start
-    happiness += table[diners[maxIdx]].Neighbors[diners[0]] + table[diners[0]].Neighbors[diners[maxIdx]];
-    Console.WriteLine($"{happiness} ");
+        happiness += table[list[i]].Neighbors[list[i + 1]];
+        happiness += table[list[i + 1]].Neighbors[list[i]];
+     }
 
+    // take care of the wraparound from end of list to start
+    happiness += table[list[^1]].Neighbors[list[0]];        // [^1] == [list.Count - 1]
+    happiness += table[list[0]].Neighbors[list[^1]];        // [^1] == [list.Count - 1]
+ 
     return happiness;
 }
