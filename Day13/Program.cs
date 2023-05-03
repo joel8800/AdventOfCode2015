@@ -1,7 +1,7 @@
 ﻿using AoCUtils;
 using Day13;
 
-Console.WriteLine("Knights of tbe Dinner Table");
+Console.WriteLine("Day13: Knights of tbe Dinner Table");
 
 string[] input = FileUtil.ReadFileByLine("input.txt");
 

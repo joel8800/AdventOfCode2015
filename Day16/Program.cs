@@ -1,7 +1,7 @@
 ﻿using AoCUtils;
 using Day16;
 
-Console.WriteLine("Aunt Sue");
+Console.WriteLine("Day16: Aunt Sue");
 
 string[] input = FileUtil.ReadFileByLine("input.txt");
 

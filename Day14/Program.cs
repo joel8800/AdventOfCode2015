@@ -1,7 +1,7 @@
 ﻿using AoCUtils;
 using Day14;
 
-Console.WriteLine("Reindeer Olympics");
+Console.WriteLine("Day14: Reindeer Olympics");
 
 string[] input = FileUtil.ReadFileByLine("input.txt");
 int raceTime = 2503;

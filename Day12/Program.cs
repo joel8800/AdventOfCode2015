@@ -1,7 +1,8 @@
 ﻿using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 
-Console.WriteLine("JSAbacusFramework.io");
+Console.WriteLine("Day12: SJSAbacusFramework.io");
+
 string jsonString = File.ReadAllText("input.txt");
 
 // For Part1, it's easier to use regex to find all the numbers in

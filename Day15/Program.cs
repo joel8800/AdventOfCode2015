@@ -1,7 +1,7 @@
 ﻿using AoCUtils;
 using Day15;
 
-Console.WriteLine("Science for Hungry People");
+Console.WriteLine("Day15: Science for Hungry People");
 
 string[] input = FileUtil.ReadFileByLine("input.txt");
 
