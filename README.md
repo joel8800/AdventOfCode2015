@@ -4,7 +4,7 @@
 
 #### Progress:
 <img style="display: block; margin-left: auto; margin-right: auto; width: 100%;"
-	src="https://progress-bar.dev/35/?scale=50&title=StarsCollected&width=700&suffix=/50"
+	src="https://progress-bar.dev/38/?scale=50&title=StarsCollected&width=700&suffix=/50"
 	alt="Progress Bar">
 </img>
 | Day | Status | Source | Solution Notes |
@@ -26,5 +26,6 @@
  | [Day 15:  Science for Hungry People](https://adventofcode.com/2015/day/15) | :star::star: | [Solution](./Day15/Program.cs) |  |
  | [Day 16:  Aunt Sue](https://adventofcode.com/2015/day/16) | :star::star: | [Solution](./Day16/Program.cs) |  |
  | [Day 18:  Like a GIF For Your Yard](https://adventofcode.com/2015/day/18) | :star::star: | [Solution](./Day18/Program.cs) |  |
- | [Day 19:  Medicine for Rudolph](https://adventofcode.com/2015/day/19) | :star: | [Solution](./Day19/Program.cs) |  |
+ | [Day 19:  Medicine for Rudolph](https://adventofcode.com/2015/day/19) | :star::star: | [Solution](./Day19/Program.cs) |  |
+ | [Day 20:  Infinite Elves and Infinite Houses](https://adventofcode.com/2015/day/20) | :star::star: | [Solution](./Day20/Program.cs) |  |
 
