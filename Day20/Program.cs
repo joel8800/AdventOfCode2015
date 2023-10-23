@@ -28,7 +28,7 @@ Console.WriteLine($"Part1: {answerPt1}");
 
 // ----------------------------------------------------------------------------
 
-houses = houses = Enumerable.Repeat(0, maxHouses).ToList();
+houses = Enumerable.Repeat(0, maxHouses).ToList();
 
 for (int e = 1; e < maxHouses; e++)
 {
