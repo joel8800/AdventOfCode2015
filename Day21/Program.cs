@@ -1,5 +1,4 @@
-﻿using AoCUtils;
-using Day21;
+﻿using Day21;
 
 Console.WriteLine("Day21: RPG Simulator 20XX");
 
