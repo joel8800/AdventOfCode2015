@@ -4,7 +4,7 @@
 
 #### Progress:
 <img style="display: block; margin-left: auto; margin-right: auto; width: 100%;"
-	src="https://progress-bar.dev/42/?scale=50&title=StarsCollected&width=700&suffix=/50"
+	src="https://progress-bar.dev/45/?scale=50&title=StarsCollected&width=700&suffix=/50"
 	alt="Progress Bar">
 </img>
 | Day | Status | Source | Solution Notes |
@@ -30,4 +30,6 @@
  | [Day 19:  Medicine for Rudolph](https://adventofcode.com/2015/day/19) | :star::star: | [Solution](./Day19/Program.cs) | String manipulation with LINQ |
  | [Day 20:  Infinite Elves and Infinite Houses](https://adventofcode.com/2015/day/20) | :star::star: | [Solution](./Day20/Program.cs) | Loops and math |
  | [Day 21:  RPG Simulator 20XX](https://adventofcode.com/2015/day/21) | :star::star: | [Solution](./Day21/Program.cs) |  |
+ | [Day 23:  Opening the Turing Lock](https://adventofcode.com/2015/day/23) | :star::star: | [Solution](./Day23/Program.cs) |  |
+ | [Day 25:  Let It Snow](https://adventofcode.com/2015/day/25) | :star: | [Solution](./Day25/Program.cs) |  |
 
