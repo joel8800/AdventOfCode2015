@@ -9,7 +9,6 @@
         public int Compartments { get; private set; }
         public long QE { get; private set; }
 
-
         public Sleigh(string[] input, int compartments)
         {
             Compartments = compartments;
